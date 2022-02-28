@@ -1,0 +1,10 @@
+.border3{
+  text-align: center;
+  color: black;
+  background: linear-gradient(110deg,#ff6464 11%, rgba(0,0,0,0) 11%), linear-gradient(110deg,#5ac8fa 89%, #ff6464 89%);
+}
+.border2{
+  height: 300px;
+  width: 49.6%;
+  max-width: 50%;
+}
