@@ -9,25 +9,27 @@ body {
 }
 
 .imageStyle {
-  height: 40px;
-  width: 50px;
+  height: 33px;
+  width: 40px;
   border: 1px;
   margin: 5px;
   vertical-align: middle;
 }
 .border4 {
   border: white;
-  background: linear-gradient(90deg, white 58%, black 58%);
+  background: linear-gradient(90deg, white 65%, black 65%);
   border-width: 5px;
   border-style: outset;
   color: black;
-  font-size: 30px;
+  font-size: 35px;
   border-radius: 15px;
+  float: left;
+  text-decoration: none;
 }
 .border3{
   text-align: center;
   color: black;
-  background: linear-gradient(110deg,#ff6464 11%, rgba(0,0,0,0) 11%), linear-gradient(110deg,#5ac8fa 89%, #ff6464 89%);
+  background: linear-gradient(110deg, #64ffb7 11%, rgba(0,0,0,0) 11%), linear-gradient(110deg, #5a7afa 89%, #64ffb7 89%);
 }
 .border2{
   height: 300px;
@@ -52,17 +54,17 @@ body {
 
 .branding {
   color: white;
-  font-weight: bold;
   font-family: fantasy;
   background-color: #eb9316;
   margin-bottom: 3px;
   border-style: solid;
   border-width: 1px;
   text-align: center;
-  padding-top: 8px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-top-right-radius:30px;
   border-bottom-left-radius:30px;
+
 }
 
 .branding:after {
@@ -72,25 +74,34 @@ body {
 }
 
 .userNavigation {
-  background-color: black;
+  background-color: #1a71b8;
   color: white;
+  font-weight: bold;
   margin-bottom: 3px;
-  height: 40px;
+  height: 80px;
   border-style: solid;
   border-width: 1px;
   text-align: center;
   padding: 10px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-family: fantasy;
+  border-top-left-radius:30px;
+  border-bottom-right-radius:30px;
+  font-size: 20px;
 }
 
 .searchbar{
-  width: 350px;
-
+  width: 450px;
+  max-width: 100%;
 }
 
+.border5{
+  padding: 10px;
+}
+
+.one {
+  padding: 10px;
+}
 a.one:link {
   color: white;
   text-decoration: none;
@@ -105,11 +116,13 @@ a.one:hover {
   background-color: grey;
   color: white;
   text-decoration: none;
+
 }
 
 a.one:active {
   color: white;
   text-decoration: none;
+
 }
 
 a.two:link {
@@ -133,12 +146,12 @@ a.two:active {
 }
 
 a.three:link {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
 }
 
 a.three:visited {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -148,7 +161,7 @@ a.three:hover {
 }
 
 a.three:active {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -157,20 +170,20 @@ a.four{
 }
 
 a.four:link {
-  color: black;
+  color: #111111;
 }
 
 a.four:visited {
-  color: black;
+  color: #111111;
 }
 
 a.four:hover {
   background-color: #00C8FF;
-  color: black;
+  color: #111111;
 }
 
 a.four:active {
-  color: black;
+  color: #111111;
 }
 
 .lineELement {
@@ -190,9 +203,12 @@ a.four:active {
   border-width: 1px;
   border-color: black;
   text-align: center;
-  background-color: #1a71b8;
+  background-color: rgba(205, 90, 142, 0.87);
+  /*background-color: #eb9316;*/
   font-family: fantasy;
   border-radius: 25px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .main {
@@ -276,6 +292,7 @@ table td{
   height: 60px;
   border-style: solid;
   border-width: 1px;
+  padding: 15px;
 }
 
 .footerLeft{
