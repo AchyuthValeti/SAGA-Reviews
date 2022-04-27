@@ -4,6 +4,8 @@ import { ActivatedRoute , Params} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { AppMovieDialogComponent } from '../movie-details/app-movie-dialog/app-movie-dialog.component';
+import { UserDetailService } from 'src/app/service/user-detail.service';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-movie-details',
@@ -21,13 +23,19 @@ export class MovieDetailsComponent implements OnInit {
   backdrops: any = [];
   recomendMovies: any = [];
   responsiveOptions;
+  disable: boolean = true;
+  savedComments: any;
+  userWatchList: any;
+
 
 
   constructor(
     private movieService: MoviesService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public _data: UserDetailService,
+    private http: HttpClient
   ) {
     this.responsiveOptions = [
       {
@@ -56,6 +64,7 @@ export class MovieDetailsComponent implements OnInit {
       this.getCast(this.id);
       this.getBackropsImages(this.id);
       this.getRecomendMovie(this.id);
+      this.getSavedComments();
     });
   }
 
@@ -100,6 +109,38 @@ export class MovieDetailsComponent implements OnInit {
       this.recomendMovies = res.results;
     });
   }
- 
-}
 
+  
+  saveComment(comment) {
+    this.http.post("http://localhost:3000/api/saveComment",
+      { content_id:Number(this.id), name: this._data.name, comment: comment.value }).subscribe((res) => {
+        if (res['data'])
+          console.log("comment saved succesfully");
+        else
+        console.log("error");
+      })
+    window.location.reload();
+  }
+
+  getSavedComments() {
+    this.http.get("http://localhost:3000/api/getComments")
+      .subscribe((res) => {
+        this.savedComments = res;
+    })
+  }
+
+  saveWatchList() {
+    this.http.post("http://localhost:3000/api/saveWatchList",
+      {
+        user_id: this._data.id, content_id: Number(this.id), name: this._data.name,
+      title: this.movie.original_title}).subscribe((res) => {
+      if (res['data'])
+        console.log("watchlist added for the user");
+      else
+        console.log("error");
+        
+        
+    })
+  }
+
+}

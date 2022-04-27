@@ -1,50 +1,46 @@
 <div class="header">
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <div class="container-fluid">
-    <a class= "navbar-brand" routerLink="/home"><img class='imageStyle' src="../../assets/Images/webLogo.png" alt="icon " >
-      <strong>SAGA</strong>&nbsp;<strong style="color: white">Buzz&nbsp; </strong></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a  class='nav-link' [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a  class='nav-link' [routerLink]="['/movies']" routerLinkActive="router-link-active">Movies</a>
-        </li>
-        <li class="nav-item">
-          <a class='nav-link' [routerLink]="['/tv']" routerLinkActive="router-link-active">TV Shows</a>
-        </li>
-        <li class="nav-item">
-          <a  class='nav-link' [routerLink]="['/genres']" routerLinkActive="router-link-active">Categories</a>
-        </li>
-        <li class="nav-item">
-          <a class='nav-link' [routerLink]="['/aboutus']" routerLinkActive="router-link-active">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/signin']" routerLinkActive="router-link-active">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="router-link-active">Sign up</a>
-        </li>
-        <!-- <li class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Navigation</button>
-          <div class="dropdown-content">
-            <a class="nav-link" [routerLink]="['/my-reviews']" routerLinkActive="router-link-active">My Reviews</a>
-            <a class="nav-link" [routerLink]="['/my-watchlist']" routerLinkActive="router-link-active">My Watch List</a>
-            <a class="nav-link" [routerLink]="['/my-poles']" routerLinkActive="router-link-active">My Poles</a>
-          </div>
-        </li>-->
-      </ul>
-     <!-- <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" style="background-color: #BE5869" type="submit">Search</button>
-      </form> -->
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+      <a class= "navbar-brand" routerLink="/home"><img class='imageStyle' src="../../assets/Images/webLogo.png" alt="icon " >
+        <strong>SAGA</strong>&nbsp;<strong style="color: white">Buzz&nbsp; </strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a  class='nav-link' [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a  class='nav-link' [routerLink]="['/movies']" routerLinkActive="router-link-active">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class='nav-link' [routerLink]="['/tv']" routerLinkActive="router-link-active">TV Shows</a>
+          </li>
+          <li class="nav-item">
+            <a  class='nav-link' [routerLink]="['/genres']" routerLinkActive="router-link-active">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class='nav-link' [routerLink]="['/aboutus']" routerLinkActive="router-link-active">About Us</a>
+          </li>
+            <li class="nav-item" *ngIf="!_data.isLoggedIn">
+              <a class="nav-link" [routerLink]="['/signin']">Login</a></li>
+
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!_data.isLoggedIn" [routerLink]="['/signup']" routerLinkActive="router-link-active">Sign up</a>
+          </li>
+          <li class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" style="padding-right: 20px;" *ngIf="_data.isLoggedIn"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-dragon"></i> {{_data.name}}</button>
+            <div class="dropdown-content">
+              <a class="nav-link" [routerLink]="['/my-watchlist']" routerLinkActive="router-link-active">My Watch List</a>
+              <li class="nav-item" *ngIf="_data.isLoggedIn"><a [routerLink]="['/home']" class="nav-link" id="desc" (click)="logOut()">Logout</a></li>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </div>
 <!-- ng add @angular/material -->
 <div class="loading" *ngIf="loading">

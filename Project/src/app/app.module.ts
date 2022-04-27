@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {CarouselModule} from 'primeng/carousel';
-import { MyWishlistComponent } from './my-wishlist/my-wishlist.component';
+import { MyWatchlistComponent } from './my-watchlist/my-watchlist.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { MyPolesComponent } from './my-poles/my-poles.component';
 import { SigninComponent } from './signin/signin.component';
@@ -20,7 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PipeModule } from './pipe/pipe.module';
-import {MatPaginatorModule} from "@angular/material/paginator";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { ReactiveFormsModule } from '@angular/forms'
+import { UserDetailService } from "./service/user-detail.service";
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 
@@ -28,7 +31,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
   declarations: [
     AppComponent,
     HomeComponent,
-    MyWishlistComponent,
+    MyWatchlistComponent,
     CategoriesComponent,
     MyPolesComponent,
     SigninComponent,
@@ -36,6 +39,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     AboutUsComponent,
     MyreviewsComponent,
     CatalogComponent,
+    WishlistComponent,
   ],
     imports: [
         BrowserModule,
@@ -49,10 +53,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         BrowserAnimationsModule,
         SidebarModule,
         MatProgressSpinnerModule,
-        MatPaginatorModule,
+      MatPaginatorModule,
+      ReactiveFormsModule
 
     ],
-  providers: [],
+  providers: [UserDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

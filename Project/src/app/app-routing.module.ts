@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {MyWishlistComponent} from "./my-wishlist/my-wishlist.component";
+import {MyWatchlistComponent} from "./my-watchlist/my-watchlist.component";
 import {CategoriesComponent} from "./categories/categories.component";
 import {MyreviewsComponent} from "./myreviews/myreviews.component";
 import {SigninComponent} from "./signin/signin.component";
@@ -14,7 +14,7 @@ import {MyPolesComponent} from "./my-poles/my-poles.component";
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
-  { path: 'my-watchlist', component: MyWishlistComponent},
+  { path: 'my-watchlist', component: MyWatchlistComponent},
   { path: 'categories', component: CategoriesComponent},
   {path: 'my-reviews', component:MyreviewsComponent},
   {path: 'my-poles', component: MyPolesComponent},

@@ -111,7 +111,7 @@ backdrop:after {
     display: inline-block;
     max-width: none;
     height: 100%;
-}
+    }
 @media only screen and (min-width: 900px) {
     .image{
     width: 100%;
@@ -261,7 +261,7 @@ i {
 }
 
 .material-icons {
-    color: #dcf836;
+    color: #BE5869;
 }
 
 span {

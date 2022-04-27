@@ -1,3 +1,5 @@
+<br>
+<h1>TV Showdetails</h1>
 <div class="hero">
     <div class="backdrop">
         <div class="lazyloaded">
@@ -200,4 +202,13 @@
 
         </div>
     </div>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" #comment></textarea>
+    <button class="btn1" (click)="saveWatchList()"><span>+ Add to Wish List</span></button>
+    <button type="submit" [disabled]="!_data.isLoggedIn" class="btn btn-primary mb-3"
+    (click)="saveComment(comment)">comment</button>
+    <div *ngFor="let comment of savedComments">
+        <h1 *ngIf="comment.content_id == id">{{comment.name}}</h1>
+        <h3 *ngIf="comment.content_id == id">{{comment.comment}}</h3>
+    </div>
+
 </div>

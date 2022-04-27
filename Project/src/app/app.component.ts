@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import {ThemePalette} from '@angular/material/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { UserDetailService } from 'src/app/service/user-detail.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent {
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public _data: UserDetailService) {
     router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.loading = true;
@@ -25,6 +26,12 @@ export class AppComponent {
         }, 1000);
       }
     });
+    console.log(_data);
   }
+
+  public logOut() {
+    this._data.logOutUser();
+    window.location.reload();
+ }
 
 }
