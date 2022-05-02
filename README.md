@@ -3,5 +3,6 @@
 1. Navigate to the project Folder and enter 
 "npm install" after that enter
 "ng serve"
-2. Take another terminal or command prompt, navigate to the APP folder and enter
+2. Install MongoDB and connect to the server.
+3. Take another terminal or command prompt, navigate to the APP folder and enter
 "node app.js"
